@@ -1,0 +1,381 @@
+/* About Component Styles */
+.minecraft-about {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.minecraft-about-container {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+}
+
+.minecraft-about-scroll {
+  flex: 2;
+  background-color: var(--minecraft-ui-brown);
+  border: 3px solid var(--minecraft-ui-border);
+  padding: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.minecraft-scroll-content {
+  background-color: #fffad6; /* Scroll paper color */
+  color: #3a3a3a;
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.minecraft-scroll-content h3 {
+  color: #7e3f07;
+  margin: 15px 0 10px;
+  font-size: 0.9rem;
+}
+
+.minecraft-scroll-content p {
+  margin-bottom: 15px;
+}
+
+.minecraft-about-education {
+  flex: 1;
+  background-color: var(--minecraft-ui-brown);
+  border: 3px solid var(--minecraft-ui-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.education-header {
+  background-color: var(--minecraft-ui-dark);
+  border-bottom: 2px solid var(--minecraft-black);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.education-icon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.education-content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.education-item {
+  background-color: var(--minecraft-black);
+  border: 2px solid var(--minecraft-inventory-border);
+  padding: 10px;
+}
+
+.education-degree {
+  color: var(--minecraft-green);
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.education-school {
+  color: white;
+  font-size: 0.7rem;
+  margin-bottom: 3px;
+}
+
+.education-year {
+  color: #aaa;
+  font-size: 0.6rem;
+}
+
+/* Skills Section */
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.minecraft-inventory-grid {
+  background-color: var(--minecraft-ui-brown);
+  border: 3px solid var(--minecraft-ui-border);
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  margin: 20px;
+}
+
+.inventory-slot {
+  background-color: var(--minecraft-inventory-slot);
+  border: 2px solid var(--minecraft-inventory-border);
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.inventory-item {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-icon {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.item-name {
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+/* Contact Component Styles */
+.minecraft-contact {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.minecraft-contact-container {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+}
+
+.minecraft-map {
+  flex: 1;
+  background-color: var(--minecraft-ui-brown);
+  border: 3px solid var(--minecraft-ui-border);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.compass-rose {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 30px;
+}
+
+.compass-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+}
+
+.compass-direction {
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.north { top: 0; left: 50%; transform: translateX(-50%); }
+.east { top: 50%; right: 0; transform: translateY(-50%); }
+.south { bottom: 0; left: 50%; transform: translateX(-50%); }
+.west { top: 50%; left: 0; transform: translateY(-50%); }
+
+.contact-locations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contact-location {
+  background-color: var(--minecraft-inventory-slot);
+  border: 2px solid var(--minecraft-inventory-border);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  cursor: pointer;
+}
+
+.contact-location:hover {
+  background-color: var(--minecraft-green);
+}
+
+.location-icon {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.location-label {
+  font-size: 0.6rem;
+}
+
+.minecraft-contact-book {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-pages {
+  background-color: var(--minecraft-ui-brown);
+  border: 3px solid var(--minecraft-ui-border);
+  display: flex;
+  width: 100%;
+  height: 80%;
+  max-width: 600px;
+}
+
+.book-page {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-page.left {
+  background-color: #fffad6;
+  color: #3a3a3a;
+  border-right: 1px solid #a89e74;
+}
+
+.book-page.right {
+  background-color: #fffad6;
+  color: #3a3a3a;
+}
+
+.book-page h3 {
+  font-size: 0.9rem;
+  color: #7e3f07;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-field label {
+  font-size: 0.7rem;
+  color: #5a3a1a;
+}
+
+.minecraft-input, .minecraft-textarea {
+  padding: 8px;
+  background-color: white;
+  border: 2px solid #a89e74;
+  color: #3a3a3a;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+}
+
+.minecraft-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.send-button {
+  background-color: #5a3a1a;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  align-self: flex-end;
+  margin-top: 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: var(--minecraft-green);
+}
+
+.form-success-message {
+  background-color: rgba(97, 181, 51, 0.2);
+  border: 2px solid var(--minecraft-green);
+  padding: 15px;
+  color: #3a3a3a;
+  font-size: 0.7rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-detail, .location-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail-icon {
+  font-size: 1.2rem;
+}
+
+.contact-detail a {
+  font-size: 0.6rem;
+  color: #3167ff;
+  text-decoration: none;
+}
+
+.contact-detail a:hover {
+  text-decoration: underline;
+}
+
+.location-detail {
+  font-size: 0.6rem;
+  color: #3a3a3a;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .minecraft-about-container,
+  .minecraft-contact-container {
+    flex-direction: column;
+  }
+  
+  .minecraft-about-scroll {
+    max-height: 300px;
+  }
+  
+  .book-pages {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .book-page {
+    padding: 15px;
+  }
+  
+  .book-page.left {
+    border-right: none;
+    border-bottom: 1px solid #a89e74;
+  }
+}

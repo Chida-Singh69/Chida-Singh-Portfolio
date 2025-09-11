@@ -1,0 +1,114 @@
+:root {
+  font-family: 'Press Start 2P', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Minecraft colors */
+  --grass-green: #61b533;
+  --dirt-brown: #8b5a2b;
+  --stone-gray: #949494;
+  --bedrock-dark: #191919;
+  --sky-blue: #3f76e4;
+  --water-blue: #3167ff;
+  --wood-brown: #a0764d;
+  --gold: #ffff00;
+  --diamond: #00ffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  font-weight: 500;
+  color: var(--diamond);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  image-rendering: pixelated;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1.2;
+  text-shadow: 2px 2px 0px #000000;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.8em;
+  line-height: 1.2;
+  text-shadow: 2px 2px 0px #000000;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.2em;
+  line-height: 1.2;
+  text-shadow: 1px 1px 0px #000000;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 16px;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+button {
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 0.8em;
+  font-family: inherit;
+  background-color: var(--stone-gray);
+  cursor: pointer;
+  box-shadow: 
+    inset -3px -3px 0px rgba(0, 0, 0, 0.6),
+    inset 3px 3px 0px rgba(255, 255, 255, 0.6);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

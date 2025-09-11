@@ -1,0 +1,91 @@
+/* Minecraft Icons CSS */
+.minecraft-icon {
+  width: 40px;
+  height: 40px;
+  image-rendering: pixelated;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+}
+
+/* Home Icon */
+.icon-home {
+  background-image: url('./assets/minecraft_grass_block.png');
+}
+
+/* Projects Icon */
+.icon-projects {
+  background-image: url('./assets/minecraft_crafting_table.png');
+}
+
+/* Experience Icon */
+.icon-experience {
+  background-image: url('./assets/minecraft_experience_bottle.png');
+}
+
+/* Skills Icon */
+.icon-skills {
+  background-image: url('./assets/minecraft_enchanted_book.png');
+}
+
+/* About Icon */
+.icon-about {
+  background-image: url('./assets/minecraft_written_book.png');
+}
+
+/* Contact Icon */
+.icon-contact {
+  background-image: url('./assets/minecraft_compass.png');
+}
+
+/* Skill Item Icons */
+.skill-icon {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.skill-react {
+  background-image: url('../src/assets/minecraft_redstone.png');
+}
+
+.skill-javascript {
+  background-image: url('../src/assets/minecraft_glowstone_dust.png');
+}
+
+.skill-html-css {
+  background-image: url('../src/assets/minecraft_book.png');
+}
+
+.skill-node {
+  background-image: url('../src/assets/minecraft_slime_ball.png');
+}
+
+.skill-firebase {
+  background-image: url('../src/assets/minecraft_blaze_powder.png');
+}
+
+.skill-git {
+  background-image: url('../src/assets/minecraft_clock.png');
+}
+
+/* Floating block icons */
+.floating-block-dirt {
+  background-image: url('../src/assets/minecraft_dirt.png');
+}
+
+.floating-block-stone {
+  background-image: url('../src/assets/minecraft_stone.png');
+}
+
+.floating-block-grass {
+  background-image: url('../src/assets/minecraft_grass_block.png');
+}
+
+.floating-block-wood {
+  background-image: url('../src/assets/minecraft_oak_log.png');
+}

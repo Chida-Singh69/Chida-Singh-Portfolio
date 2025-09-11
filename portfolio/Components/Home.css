@@ -1,0 +1,120 @@
+.home-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  /* We'll add the background directly to the container via inline styles */
+}
+
+.home-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121212; /* Fallback color */
+  background-image: url('../src/background/evening_sunset_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.7);
+  z-index: -1;
+}
+
+.minecraft-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.8rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 3px 3px 0 #000000, 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.5);
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+.minecraft-subtitle {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #ffff55;
+  text-shadow: 2px 2px 0 #000000, 0 0 10px rgba(255, 255, 85, 0.8), 0 0 20px rgba(255, 255, 85, 0.5);
+  letter-spacing: 1px;
+}
+
+.minecraft-character {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 2rem;
+  image-rendering: pixelated;
+  background-image: url('/src/assets/minecraft_player_head.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-content {
+  background-color: rgba(0, 0, 0, 0.5); /* More transparent background */
+  padding: 40px;
+  border: 5px solid rgba(85, 85, 85, 0.7); /* Semi-transparent border */
+  border-radius: 5px;
+  max-width: 800px;
+  margin-bottom: 80px; /* Add more space at the bottom */
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Lighter shadow */
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(3px); /* Add subtle blur effect */
+}
+
+/* Animated block effect */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating-block {
+  animation: float 3s ease-in-out infinite;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  image-rendering: pixelated;
+}
+
+.floating-block:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0.5s;
+  background-image: url('/src/assets/minecraft_dirt.png');
+}
+
+.floating-block:nth-child(2) {
+  top: 15%;
+  right: 15%;
+  animation-delay: 1.5s;
+  background-image: url('/src/assets/minecraft_stone.png');
+}
+
+.floating-block:nth-child(3) {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 1s;
+  background-image: url('/src/assets/minecraft_grass_block.png');
+}
+
+.floating-block:nth-child(4) {
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 2s;
+  background-image: url('/src/assets/minecraft_oak_log.png');
+}

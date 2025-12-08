@@ -38,22 +38,29 @@
 }
 
 .minecraft-experience-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
   flex: 1;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   overflow-x: hidden;
   padding: 0 8px 8px 0;
-  width: 100%;
+}
+
+.minecraft-experience-container > * {
+  margin-bottom: 16px;
+}
+
+.minecraft-experience-container > *:last-child {
+  margin-bottom: 0;
 }
 
 /* Experience card - single column achievement style */
 .experience-card {
-  display: flex;
-  flex-direction: column;
+  display: block;
   width: 100%;
+  max-width: 100%;
   background: linear-gradient(
     90deg,
     rgba(139, 87, 42, 0.9) 0%,
@@ -66,6 +73,7 @@
   overflow: hidden;
   padding: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  margin-bottom: 0;
 }
 
 .experience-header {

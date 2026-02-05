@@ -107,7 +107,7 @@
 }
 
 .minecraft-button.download-resume {
-  background: linear-gradient(180deg, rgba(113, 170, 52, 0.95) 0%, rgba(88, 124, 39, 0.95) 100%);
+  background-color: #3e5f24;
 }
 
 .minecraft-button.contact-me {

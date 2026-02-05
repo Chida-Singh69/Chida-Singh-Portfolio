@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import './Experiences.css';
 
 const experiencesData = [
   {
@@ -33,44 +34,84 @@ const experiencesData = [
 ];
 
 const Experiences = ({ mode = "overworld" }) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const totalPages = experiencesData.length;
+  const currentExp = experiencesData[currentPage];
+
+  const nextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return (
     <div className={`minecraft-experiences ${mode}`}>
-      <h1 className="minecraft-section-title">MY EXPERIENCE</h1>
+      <div className="minecraft-book-container">
+        <motion.div
+          key={currentPage}
+          className="minecraft-book"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="book-spine-left"></div>
+          <div className="book-inner">
+            <div className="book-page">
+              <div className="book-page-header">
+                Page {currentPage + 1} of {totalPages}
+              </div>
 
-      <div className="minecraft-experience-container">
-        {experiencesData.map((exp, index) => (
-          <motion.div
-            key={exp.id}
-            className="experience-card"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
-          >
-            <div className="experience-header">
-              <div className="experience-icon">{exp.icon}</div>
-              <div className="experience-title">
-                <h3>{exp.role} @ {exp.company}</h3>
-                <div className="experience-period">{exp.period}</div>
+              <div className="book-content">
+                <div className="book-text">
+                  {currentExp.company}
+                  <br /><br />
+                  {currentExp.role}
+                  <br />
+                  {currentExp.period}
+                  <br /><br />
+                  Skills:
+                  <br />
+                  {currentExp.skills.map((skill, idx) => (
+                    <React.Fragment key={idx}>
+                      • {skill}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                  <br />
+                  {currentExp.points.map((point, idx) => (
+                    <React.Fragment key={idx}>
+                      • {point}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="experience-skills">
-              {exp.skills.map((skill, idx) => (
-                <div key={idx} className="skill-tag">
-                  {skill}
-                </div>
-              ))}
+            <div className="book-buttons">
+              <button 
+                className="book-button" 
+                onClick={prevPage}
+                disabled={currentPage === 0}
+              >
+                Prev
+              </button>
+              <button 
+                className="book-button" 
+                onClick={nextPage}
+                disabled={currentPage === totalPages - 1}
+              >
+                Next
+              </button>
             </div>
-
-            <div className="experience-bullet-points">
-              {exp.points.map((point, idx) => (
-                <div key={idx} className="experience-point">
-                  • {point}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );

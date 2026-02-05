@@ -6,7 +6,7 @@
   /* Palette inspired by Minecraft UI */
   --mc-grass-light: #7fb238;
   --mc-grass-dark: #3e5f24;
-  --mc-wood-light: #c58a3b;
+  --mc-wood-light: #;
   --mc-wood-dark: #7b4b1f;
   --mc-border-dark: #252016;
   --mc-accent: #46c046;
@@ -87,9 +87,9 @@
   min-height: 0;
   cursor: pointer;
 
-  background-color: var(--mc-wood-light);
-  border: 2px solid var(--mc-wood-dark);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  background-color: transparent;
+  /* border: 2px solid #ffcc00; */
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
   transition: background-color var(--mc-transition-fast),
               box-shadow var(--mc-transition-fast),
               transform var(--mc-transition-fast);
@@ -115,6 +115,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
 }
 
 .item-icon {
@@ -162,7 +163,7 @@
   align-items: center;
   margin-bottom: 12px;
   padding: 10px;
-  background-color: rgba(33, 51, 21, 0.95);
+  background-color: #1f3f18;
   border: 3px solid var(--mc-border-dark);
 }
 
@@ -174,8 +175,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid var(--mc-wood-dark);
-  background-color: var(--mc-wood-light);
+  border: none;
+  background-color: transparent;
   image-rendering: pixelated;
 }
 
@@ -184,6 +185,7 @@
   height: 90%;
   object-fit: contain;
   image-rendering: pixelated;
+  border: none;
 }
 
 .project-title-section {
@@ -271,7 +273,7 @@
   background-color: var(--mc-accent-soft);
   border: 3px solid #000;
   color: #fff;
-  box-shadow: 0 2px 0 #1b3b16;
+  box-shadow: 0 2px 0 #1f3f18;
   transition: background-color var(--mc-transition-fast),
               box-shadow var(--mc-transition-fast),
               transform var(--mc-transition-fast);
@@ -295,7 +297,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #1f3f18;
-  border-top: 3px solid #000;
+  border: 3px solid #000;
 }
 
 .nav-button {
@@ -304,7 +306,7 @@
   font-size: 0.6rem;
   cursor: pointer;
 
-  background-color: #3b5e24;
+  background-color: #1f3f18;
   border: 3px solid #000;
   color: #fff;
   box-shadow: 0 2px 0 #1b3b16;

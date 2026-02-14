@@ -327,13 +327,350 @@
 }
 
 /* Responsive tweaks */
+@media (max-width: 1024px) {
+  .minecraft-projects {
+    padding: 15px;
+  }
+
+  .minecraft-section-title {
+    font-size: 1.3rem;
+    padding: 9px 11px;
+  }
+
+  .minecraft-projects-container {
+    gap: 14px;
+  }
+}
+
 @media (max-width: 768px) {
+  .minecraft-projects {
+    padding: 12px;
+  }
+
+  .minecraft-section-title {
+    font-size: 1.2rem;
+    padding: 8px 10px;
+    border-width: 3px;
+  }
+
   .minecraft-projects-container {
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .minecraft-inventory,
+  .minecraft-project-details {
+    border-width: 3px;
+    padding: 10px;
+  }
+
+  .minecraft-inventory {
+    max-height: 300px;
+  }
+
+  .inventory-grid {
+    gap: 6px;
+    padding-top: 16px;
+  }
+
+  .inventory-slot {
+    border-width: 2px;
+  }
+
+  .project-name {
+    font-size: 0.85rem;
+  }
+
+  .project-counter {
+    font-size: 0.65rem;
+  }
+
+  .info-box-header {
+    font-size: 0.65rem;
+    padding: 6px 8px;
+  }
+
+  .info-box-content {
+    font-size: 0.75rem;
+    padding: 10px;
+  }
+
+  .minecraft-action-button {
+    padding: 8px 14px;
+    font-size: 0.65rem;
+  }
+
+  .nav-button {
+    padding: 6px 12px;
+    font-size: 0.65rem;
+  }
+
+  .page-indicator {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .minecraft-projects {
+    padding: 10px;
+  }
+
+  .minecraft-section-title {
+    font-size: 1.1rem;
+    padding: 7px 9px;
+  }
+
+  .minecraft-projects-container {
+    gap: 10px;
+  }
+
+  .minecraft-inventory,
+  .minecraft-project-details {
+    padding: 9px;
   }
 
   .minecraft-inventory {
     max-height: 280px;
+  }
+
+  .inventory-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .project-icon-large {
+    width: 70px;
+    height: 70px;
+  }
+
+  .project-name {
+    font-size: 0.8rem;
+  }
+
+  .project-counter {
+    font-size: 0.62rem;
+  }
+
+  .info-box-header {
+    font-size: 0.62rem;
+    padding: 5px 7px;
+  }
+
+  .info-box-content {
+    font-size: 0.72rem;
+    padding: 9px;
+    line-height: 1.6;
+  }
+
+  .project-action-buttons {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .minecraft-action-button {
+    padding: 7px 13px;
+    font-size: 0.62rem;
+  }
+
+  .pagination-controls {
+    padding: 6px;
+  }
+
+  .nav-button {
+    padding: 5px 11px;
+    font-size: 0.62rem;
+  }
+
+  .page-indicator {
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .minecraft-projects {
+    padding: 8px;
+  }
+
+  .minecraft-section-title {
+    font-size: 1rem;
+    padding: 6px 8px;
+    border-width: 2px;
+    margin-bottom: 12px;
+  }
+
+  .minecraft-projects-container {
+    gap: 8px;
+    max-height: none;
+  }
+
+  .minecraft-inventory,
+  .minecraft-project-details {
+    border-width: 2px;
+    padding: 8px;
+  }
+
+  .minecraft-inventory {
+    max-height: 250px;
+  }
+
+  .inventory-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    padding-top: 14px;
+  }
+
+  .inventory-slot {
+    border-width: 2px;
+  }
+
+  .project-display {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .project-icon-large {
+    width: 60px;
+    height: 60px;
+    border-width: 2px;
+  }
+
+  .project-name {
+    font-size: 0.75rem;
+  }
+
+  .project-counter {
+    font-size: 0.6rem;
+  }
+
+  .project-info-section {
+    gap: 6px;
+  }
+
+  .info-box {
+    border-width: 2px;
+  }
+
+  .info-box-header {
+    font-size: 0.6rem;
+    padding: 5px 6px;
+  }
+
+  .info-box-content {
+    font-size: 0.7rem;
+    padding: 8px;
+    line-height: 1.5;
+  }
+
+  .project-action-buttons {
+    gap: 6px;
+  }
+
+  .minecraft-action-button {
+    padding: 6px 12px;
+    font-size: 0.6rem;
+    border-width: 2px;
+  }
+
+  .pagination-controls {
+    border-width: 2px;
+    padding: 5px;
+    gap: 6px;
+  }
+
+  .nav-button {
+    padding: 5px 10px;
+    font-size: 0.6rem;
+    border-width: 2px;
+  }
+
+  .page-indicator {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .minecraft-projects {
+    padding: 6px;
+  }
+
+  .minecraft-section-title {
+    font-size: 0.9rem;
+    padding: 5px 7px;
+  }
+
+  .minecraft-projects-container {
+    gap: 6px;
+  }
+
+  .minecraft-inventory,
+  .minecraft-project-details {
+    padding: 7px;
+  }
+
+  .minecraft-inventory {
+    max-height: 220px;
+  }
+
+  .inventory-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3px;
+    padding-top: 12px;
+  }
+
+  .project-display {
+    padding: 7px;
+    gap: 7px;
+  }
+
+  .project-icon-large {
+    width: 55px;
+    height: 55px;
+  }
+
+  .project-name {
+    font-size: 0.7rem;
+  }
+
+  .project-counter {
+    font-size: 0.58rem;
+  }
+
+  .project-info-section {
+    gap: 5px;
+  }
+
+  .info-box-header {
+    font-size: 0.58rem;
+    padding: 4px 5px;
+  }
+
+  .info-box-content {
+    font-size: 0.68rem;
+    padding: 7px;
+    line-height: 1.5;
+  }
+
+  .project-action-buttons {
+    gap: 5px;
+  }
+
+  .minecraft-action-button {
+    padding: 5px 11px;
+    font-size: 0.58rem;
+  }
+
+  .pagination-controls {
+    padding: 4px;
+    gap: 5px;
+  }
+
+  .nav-button {
+    padding: 4px 9px;
+    font-size: 0.58rem;
+  }
+
+  .page-indicator {
+    font-size: 0.58rem;
   }
 }
 

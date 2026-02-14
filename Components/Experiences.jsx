@@ -5,6 +5,20 @@ import './Experiences.css';
 const experiencesData = [
   {
     id: 1,
+    company: "Nasdaq",
+    companyUrl: "https://www.nasdaq.com/solutions/sustainability/metrio",
+    role: "SDE Intern",
+    period: "Jan 2026 – Present",
+    skills: ["Go Lang", "Backend Development", "Learning Phase"],
+    points: [
+      "Currently working with the Metrio team at Nasdaq.",
+      "Learning Go Lang and backend development practices.",
+      "Onboarding and familiarizing with enterprise-scale systems."
+    ],
+    logo: "/logos/nasdaq-logo-png_seeklogo-426643.webp"
+  },
+  {
+    id: 2,
     company: "GiftOlexia",
     companyUrl: "https://giftolexia.com/",
     role: "Web Development Intern",
@@ -16,10 +30,10 @@ const experiencesData = [
       "Migrated the legacy assessment flow to React.js with modular components.",
       "Integrated APIs and improved page load speed by around 40%."
     ],
-    icon: "🧩"
+    logo: "/logos/Giftolexia_logo.png"
   },
   {
-    id: 2,
+    id: 3,
     company: "Shree Sai Sadhbhaavana School",
     companyUrl: "https://www.sadhbhaavana.com/",
     role: "Web Development Intern",
@@ -31,91 +45,88 @@ const experiencesData = [
       "Enhanced UI responsiveness across devices for parents, staff, and students.",
       "Streamlined content update workflow in collaboration with school staff."
     ],
-    icon: "🏫"
+    logo: "/logos/shree sai sadhbhaavana school_logo.png"
   }
 ];
 
 const Experiences = ({ mode = "overworld" }) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const totalPages = experiencesData.length;
-  const currentExp = experiencesData[currentPage];
-
-  const nextPage = () => {
-    if (currentPage < totalPages - 1) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+  const [selectedExp, setSelectedExp] = useState(0);
+  const currentExp = experiencesData[selectedExp];
 
   return (
     <div className={`minecraft-experiences ${mode}`}>
-      <div className="minecraft-book-container">
-        <motion.div
-          key={currentPage}
-          className="minecraft-book"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="book-spine-left"></div>
-          <div className="book-inner">
-            <div className="book-page">
-              <div className="book-page-header">
-                Page {currentPage + 1} of {totalPages}
-              </div>
-
-              <div className="book-content">
-                <div className="book-text">
-                  <a href={currentExp.companyUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#1f3f18', textDecoration: 'underline', cursor: 'pointer' }}>
-                    {currentExp.company}
-                  </a>
-                  <br /><br />
-                  {currentExp.role}
-                  <br />
-                  {currentExp.period}
-                  <br /><br />
-                  Skills:
-                  <br />
-                  {currentExp.skills.map((skill, idx) => (
-                    <React.Fragment key={idx}>
-                      • {skill}
-                      <br />
-                    </React.Fragment>
-                  ))}
-                  <br />
-                  {currentExp.points.map((point, idx) => (
-                    <React.Fragment key={idx}>
-                      • {point}
-                      <br />
-                    </React.Fragment>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="book-buttons">
-              <button 
-                className="book-button" 
-                onClick={prevPage}
-                disabled={currentPage === 0}
+      <div className="crafting-container">
+        
+        {/* Top bar with logo slots */}
+        <div className="crafting-header">
+          <div className="logo-slots">
+            {experiencesData.map((exp, idx) => (
+              <div 
+                key={exp.id}
+                className={`logo-slot ${selectedExp === idx ? 'selected' : ''}`}
+                onClick={() => setSelectedExp(idx)}
               >
-                Prev
-              </button>
-              <button 
-                className="book-button" 
-                onClick={nextPage}
-                disabled={currentPage === totalPages - 1}
-              >
-                Next
-              </button>
-            </div>
+                <img 
+                  src={exp.logo} 
+                  alt={exp.company}
+                  className="company-logo"
+                />
+              </div>
+            ))}
           </div>
-        </motion.div>
+        </div>
+
+        {/* Main content area */}
+        <div className="crafting-content">
+          <div className="experience-header">
+            <div className="header-title">Experiences</div>
+          </div>
+
+          <motion.div
+            key={selectedExp}
+            className="experience-details"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="detail-section">
+              <a 
+                href={currentExp.companyUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="company-link"
+              >
+                {currentExp.company}
+              </a>
+            </div>
+
+            <div className="detail-section">
+              <span className="detail-label">Role:</span> {currentExp.role}
+            </div>
+
+            <div className="detail-section">
+              <span className="detail-label">Period:</span> {currentExp.period}
+            </div>
+
+            <div className="detail-section">
+              <span className="detail-label">Skills:</span>
+              <div className="skills-list">
+                {currentExp.skills.map((skill, idx) => (
+                  <span key={idx} className="skill-tag">• {skill}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="detail-section">
+              <span className="detail-label">Highlights:</span>
+              <ul className="points-list">
+                {currentExp.points.map((point, idx) => (
+                  <li key={idx}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

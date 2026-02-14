@@ -74,7 +74,7 @@
 .beacon-right .beacon-title {
   margin: 0 0 12px 0;
   padding: 8px 10px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   border: 3px solid var(--mc-border-dark);
   background: #1f3f18;
 }
@@ -124,14 +124,16 @@
   flex: 1;
   background: transparent;
   border: 3px solid var(--mc-border-dark);
-  padding: 10px;
+  padding: 14px 16px;
   font-family: var(--mc-font-pixel);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   color: var(--mc-header-text);
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
   outline: none;
   transition: all var(--mc-transition-fast);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+  min-height: 48px;
+  line-height: 1.4;
 }
 
 .guess-input:focus {
@@ -147,14 +149,15 @@
 .guess-button {
   background-color: var(--mc-accent-soft);
   border: 3px solid var(--mc-border-dark);
-  padding: 10px 15px;
+  padding: 14px 18px;
   font-family: var(--mc-font-pixel);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: #fff;
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
   cursor: pointer;
   transition: all var(--mc-transition-fast);
   box-shadow: 0 4px 0 var(--mc-border-dark);
+  min-height: 48px;
 }
 
 .guess-button:hover {
@@ -169,9 +172,9 @@
   background: transparent;
   border: 3px solid var(--mc-border-dark);
   font-family: var(--mc-font-pixel);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: #fff;
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
   text-align: center;
   word-break: break-word;
   animation: popIn 0.3s ease-out;
@@ -207,9 +210,9 @@
   border: 3px solid var(--mc-border-dark);
   padding: 10px 15px;
   font-family: var(--mc-font-pixel);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: #fff;
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
   cursor: pointer;
   transition: all var(--mc-transition-fast);
   box-shadow: 0 4px 0 var(--mc-border-dark);
@@ -265,17 +268,17 @@
 }
 
 .log-label {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   color: var(--mc-header-text);
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
   font-weight: bold;
   text-transform: uppercase;
 }
 
 .log-value {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: #fff;
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
   text-decoration: none;
   word-break: break-all;
   transition: color var(--mc-transition-fast);
@@ -326,6 +329,12 @@
     padding: 12px;
   }
 
+  .beacon-title {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+    border-width: 3px;
+  }
+
   .beacon-left,
   .beacon-right {
     border-width: 3px;
@@ -345,19 +354,26 @@
     border-width: 2px;
   }
 
+  .game-icon {
+    width: 70px;
+    height: 70px;
+  }
+
   .guess-input,
   .guess-button,
   .new-icon-button,
   .guess-message {
-    font-size: 0.55rem;
+    font-size: 0.62rem;
     border-width: 2px;
-    padding: 8px;
+    padding: 10px 12px;
+    min-height: 42px;
   }
 
   .log-entry {
     font-size: 0.55rem;
     border-width: 2px;
     padding: 8px;
+    gap: 6px;
   }
 
   .entry-icon {
@@ -374,9 +390,76 @@
   }
 }
 
+@media (max-width: 640px) {
+  .minecraft-contact {
+    padding: 10px;
+  }
+
+  .beacon-title {
+    font-size: 0.75rem;
+    padding: 7px 9px;
+  }
+
+  .beacon-left,
+  .beacon-right {
+    border-width: 3px;
+    padding: 9px;
+  }
+
+  .beacon-left .beacon-title,
+  .beacon-right .beacon-title {
+    font-size: 0.7rem;
+    padding: 6px 7px;
+  }
+
+  .game-section {
+    gap: 10px;
+  }
+
+  .icon-display {
+    width: 90px;
+    height: 90px;
+  }
+
+  .game-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .guess-input,
+  .guess-button {
+    font-size: 0.58rem;
+    padding: 9px 11px;
+    min-height: 40px;
+  }
+
+  .new-icon-button,
+  .guess-message {
+    font-size: 0.52rem;
+    padding: 7px;
+  }
+
+  .log-entry {
+    font-size: 0.52rem;
+    padding: 7px;
+    gap: 5px;
+  }
+
+  .entry-icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
 @media (max-width: 480px) {
   .minecraft-contact {
     padding: 8px;
+  }
+
+  .beacon-title {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+    border-width: 2px;
   }
 
   .beacon-left,
@@ -387,7 +470,7 @@
 
   .beacon-left .beacon-title,
   .beacon-right .beacon-title {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     padding: 5px 6px;
     border-width: 2px;
     margin-bottom: 8px;
@@ -403,6 +486,11 @@
     border-width: 2px;
   }
 
+  .game-icon {
+    width: 60px;
+    height: 60px;
+  }
+
   .guess-input-wrapper {
     gap: 4px;
     flex-wrap: wrap;
@@ -410,9 +498,10 @@
 
   .guess-input,
   .guess-button {
-    font-size: 0.5rem;
+    font-size: 0.55rem;
     border-width: 2px;
-    padding: 6px;
+    padding: 8px 10px;
+    min-height: 38px;
   }
 
   .guess-button {
@@ -432,11 +521,15 @@
     padding: 6px;
   }
 
+  .contact-entries {
+    gap: 6px;
+  }
+
   .log-entry {
     font-size: 0.5rem;
     border-width: 2px;
     padding: 6px;
-    gap: 2px;
+    gap: 4px;
   }
 
   .entry-icon {
@@ -450,6 +543,58 @@
 
   .log-value {
     font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .minecraft-contact {
+    padding: 6px;
+  }
+
+  .beacon-title {
+    font-size: 0.65rem;
+    padding: 5px 7px;
+  }
+
+  .beacon-left,
+  .beacon-right {
+    padding: 7px;
+  }
+
+  .beacon-left .beacon-title,
+  .beacon-right .beacon-title {
+    font-size: 0.6rem;
+    padding: 4px 5px;
+  }
+
+  .icon-display {
+    width: 70px;
+    height: 70px;
+  }
+
+  .game-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .guess-input,
+  .guess-button,
+  .new-icon-button,
+  .guess-message {
+    font-size: 0.52rem;
+    padding: 7px 9px;
+    min-height: 36px;
+  }
+
+  .log-entry {
+    font-size: 0.48rem;
+    padding: 5px;
+    gap: 3px;
+  }
+
+  .entry-icon {
+    width: 22px;
+    height: 22px;
   }
 }
 

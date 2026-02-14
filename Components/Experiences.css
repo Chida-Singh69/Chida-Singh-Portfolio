@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/* Minecraft Book Interface */
+:root {
+  /* Matching Projects page color palette */
+  --mc-grass-light: #7fb238;
+  --mc-grass-dark: #3e5f24;
+  --mc-border-dark: #252016;
+  --mc-accent: #46c046;
+  --mc-accent-soft: #3e9840;
+  --mc-header-text: #ffe96b;
+  --mc-paper: #f5f1e6;
+  --mc-text: #111;
+  --mc-tooltip-bg: rgba(16, 0, 16, 0.94);
+  --mc-font-pixel: 'Press Start 2P', system-ui, sans-serif;
+}
+
+/* Minecraft Crafting Table Interface */
 .minecraft-experiences {
   display: flex;
   justify-content: center;
@@ -10,236 +24,597 @@
   padding: 20px;
 }
 
-.minecraft-book-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Crafting Container - Matching Projects page style */
+.crafting-container {
+  max-width: 700px;
   width: 100%;
-  height: 100%;
-}
-
-/* Minecraft Book Frame - Brown wooden border like in the game */
-.minecraft-book {
-  position: relative;
-  max-width: 680px;
-  width: 100%; 
-  min-height: 520px;
-  background: #6b3f2e;
-  border: 14px solid #6b3f2e;
-  box-shadow: 
-    0 0 0 3px #3d1f17,
-    0 10px 40px rgba(0, 0, 0, 0.8);
-  display: flex;
-  padding: 0;
-}
-
-/* Left spine decoration */
-.book-spine-left {
-  width: 18px;
-  background: #5c2f1f;
-  border-right: 1px solid #3d1f17;
-  flex-shrink: 0;
-}
-
-/* Inner book container */
-.book-inner {
-  flex: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  border: 4px solid var(--mc-border-dark);
   padding: 16px;
   display: flex;
   flex-direction: column;
+  gap: 0;
 }
 
-/* Book page - parchment color like Minecraft */
-.book-page {
-  flex: 1;
-  background: #f4e8d8;
-  border: 3px solid #6b3f2e;
+/* Top bar with attached logo slots */
+.crafting-header {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  border: 4px solid var(--mc-border-dark);
+  border-bottom: none;
+  padding: 12px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.logo-slots {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.logo-slot {
+  width: 90px;
+  height: 90px;
+  background: transparent;
+  border: 3px solid var(--mc-border-dark);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-out;
+  padding: 10px;
+  position: relative;
+  image-rendering: pixelated;
+}
+
+.logo-slot:hover {
+  background-color: #e3a74d;
+  border-color: #ffcc00;
+  transform: translateY(-4px);
+  box-shadow: 
+    inset 0 0 0 2px rgba(255, 255, 255, 0.3),
+    0 0 8px rgba(255, 204, 0, 0.6);
+}
+
+.logo-slot.selected {
+  background-color: rgba(227, 167, 77, 0.5);
+  border-color: #ffcc00;
+  box-shadow: 
+    inset 0 0 0 2px rgba(255, 255, 255, 0.3),
+    0 0 8px rgba(255, 204, 0, 0.8),
+    0 0 16px rgba(255, 213, 79, 0.4);
+  transform: translateY(-6px) scale(1.05);
+}
+
+.company-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+  image-rendering: auto;
+}
+
+/* Main content area */
+.crafting-content {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  border: 4px solid var(--mc-border-dark);
+  border-top: none;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  position: relative;
-  box-shadow: inset 0 0 0 1px rgba(107, 63, 46, 0.3);
+  margin-top: -4px;
 }
 
-/* Red vertical stripe on the left - authentic Minecraft book feature */
-.book-page::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 16px;
-  /* background: #8b1a1a; */
-  /* border-right: 2px solid #6b0f0f; */
-  z-index: 1;
+.experience-header {
+  background-color: #1f3f18;
+  padding: 10px 14px;
+  border-bottom: 3px solid #000;
 }
 
-.book-page-header {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.7rem;
-  color: #6B3F2E;
-  text-align: center;
-  padding: 14px 15px 14px 28px;
-  background: transparent;
-  border-bottom: 1px solid rgba(255, 204, 0, 0.3);
-  z-index: 2;
-  position: relative;
+.header-title {
+  font-family: var(--mc-font-pixel);
+  font-size: 0.8rem;
+  color: var(--mc-header-text);
+  text-shadow: 1px 1px 0 #000;
+  letter-spacing: 1px;
 }
 
-.book-content {
-  flex: 1;
-  padding: 20px 25px 20px 32px;
+.experience-details {
+  padding: 20px;
+  background-color: #FFFAD6;
+  min-height: 300px;
+  max-height: 450px;
   overflow-y: auto;
-  font-family: 'Press Start 2P', monospace;
-  color: black;
-  font-size: 0.6rem;
-  line-height: 2.0;
-  text-align: justify;
-  z-index: 2;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.3);
+  font-family: var(--mc-font-pixel);
 }
 
 /* Scrollbar styling */
-.book-content::-webkit-scrollbar {
-  width: 8px;
+.experience-details::-webkit-scrollbar {
+  width: 10px;
 }
 
-.book-content::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
+.experience-details::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.book-content::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+.experience-details::-webkit-scrollbar-thumb {
+  background: var(--mc-grass-dark);
+  border: 1px solid var(--mc-border-dark);
 }
 
-.book-text {
-  color:black;
-  font-size: 0.6rem;
-  line-height: 2.0;
-  text-align: justify;
-  word-wrap: break-word;
+.experience-details::-webkit-scrollbar-thumb:hover {
+  background: var(--mc-grass-light);
 }
 
-.book-buttons {
+.detail-section {
+  margin-bottom: 18px;
+  font-size: 0.75rem;
+  line-height: 2;
+  color: var(--mc-text);
+}
+
+.detail-label {
+  color: var(--mc-grass-dark);
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.company-link {
+  color: var(--mc-grass-dark);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.15s ease-out;
+  display: inline-block;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.company-link:hover {
+  color: var(--mc-accent);
+  text-shadow: 0 0 8px rgba(70, 192, 70, 0.3);
+  transform: translateX(2px);
+}
+
+.skills-list {
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
 }
 
-.book-button {
-  flex: 1;
-  font-family: 'Press Start 2P', monospace;
+.skill-tag {
+  background-color: var(--mc-accent-soft);
+  border: 3px solid #000;
+  padding: 8px 14px;
   font-size: 0.65rem;
-  padding: 12px 16px;
-  background-color: transparent;
-  border: 3px solid #1f3f18;
-  color: #000;
-  cursor: pointer;
-  transition: all 0.1s ease;
-  text-shadow: none;
-  box-shadow: none;
-}
-
-.book-button:hover:not(:disabled) {
-  background-color: #1f3f18;
-  box-shadow: 0 0 8px rgba(31, 63, 24, 0.8);
-  transform: translateY(-1px);
   color: #fff;
+  box-shadow: 0 2px 0 #1f3f18;
+  transition: all 0.15s ease-out;
+  text-shadow: 1px 1px 0 #000;
 }
 
-.book-button:active:not(:disabled) {
-  transform: translateY(0);
-  box-shadow: 0 0 4px rgba(31, 63, 24, 0.6);
+.skill-tag:hover {
+  background-color: var(--mc-accent);
+  box-shadow: 0 0 8px rgba(70, 192, 70, 0.6);
+  transform: translateY(-1px);
 }
 
-.book-button:disabled {
-  background: #1f3f18;
-  color: #666;
-  cursor: not-allowed;
-  opacity: 0.5;
-  box-shadow: 0 2px 0 #111;
+.points-list {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+  list-style: none;
 }
 
-/* Responsive */
+.points-list li {
+  margin-bottom: 12px;
+  position: relative;
+  line-height: 2;
+  color: var(--mc-text);
+  font-size: 0.7rem;
+}
+
+.points-list li::before {
+  content: '→';
+  position: absolute;
+  left: -15px;
+  color: var(--mc-grass-dark);
+  font-weight: bold;
+}
+
+/* Nether Theme Overrides */
+.nether .crafting-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  border-color: #1A0A0A;
+}
+
+.nether .crafting-header {
+  /* background-color: rgba(26, 10, 10, 0.5); */
+  border-color: #1A0A0A;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.nether .logo-slot {
+  background: transparent;
+  border-color: #FFB347;
+  box-shadow: inset 0 0 0 1px rgba(255, 107, 26, 0.025);
+}
+
+.nether .logo-slot:hover {
+  background-color: #8B1F1F;
+  border-color: #FFB347;
+  box-shadow: 
+    inset 0 0 0 2px rgba(255, 179, 71, 0.3),
+    0 0 8px rgba(139, 31, 31, 0.6);
+}
+
+.nether .logo-slot.selected {
+  background-color: rgba(139, 31, 31, 0.6);
+  border-color: #FFB347;
+  box-shadow: 
+    inset 0 0 0 2px rgba(255, 179, 71, 0.3),
+    0 0 8px rgba(139, 31, 31, 0.8),
+    0 0 16px rgba(255, 179, 71, 0.5);
+  transform: translateY(-6px) scale(1.05);
+}
+
+.nether .crafting-content {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  border-color: #1A0A0A;
+}
+
+.nether .experience-header {
+  background-color: #5C1010;
+  border-bottom-color: #1A0A0A;
+}
+
+.nether .header-title {
+  color: #FFB347;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.nether .experience-details {
+  background-color: var(--mc-paper);
+}
+
+.nether .experience-details::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.nether .experience-details::-webkit-scrollbar-thumb {
+  background: #8B1F1F;
+  border-color: #1A0A0A;
+}
+
+.nether .experience-details::-webkit-scrollbar-thumb:hover {
+  background: #FF6B1A;
+}
+
+.nether .detail-section {
+  color: var(--mc-text);
+}
+
+.nether .detail-label {
+  color: #8B1F1F;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.nether .company-link {
+  color: #8B1F1F;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.nether .company-link:hover {
+  color: #FF6B1A;
+  text-shadow: 0 0 8px rgba(255, 107, 26, 0.5);
+}
+
+.nether .skill-tag {
+  background-color: #FF6B1A;
+  border-color: #1A0A0A;
+  color: #fff;
+  box-shadow: 0 2px 0 #8B1F1F;
+}
+
+.nether .skill-tag:hover {
+  background-color: #FFB347;
+  box-shadow: 0 0 10px rgba(255, 107, 26, 0.75);
+  transform: translateY(-1px);
+}
+
+.nether .points-list li {
+  color: var(--mc-text);
+}
+
+.nether .points-list li::before {
+  color: #8B1F1F;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .minecraft-book {
-    max-width: 90%;
-    min-height: 480px;
+  .minecraft-experiences {
+    padding: 15px;
   }
 
-  .book-content {
-    padding: 15px 18px 15px 25px;
-    font-size: 0.55rem;
+  .crafting-container {
+    max-width: 95%;
+    padding: 12px;
+    border-width: 3px;
   }
 
-  .book-text {
-    font-size: 0.55rem;
+  .crafting-header {
+    padding: 10px;
+    border-width: 3px;
   }
 
-  .book-button {
-    font-size: 0.55rem;
-    padding: 8px 12px;
+  .logo-slots {
+    gap: 10px;
+  }
+
+  .logo-slot {
+    width: 80px;
+    height: 80px;
+    padding: 8px;
+    border-width: 3px;
+  }
+
+  .crafting-content {
+    border-width: 3px;
+  }
+
+  .header-title {
+    font-size: 0.75rem;
+  }
+
+  .experience-details {
+    padding: 15px;
+    min-height: 250px;
+    max-height: 400px;
+  }
+
+  .detail-section {
+    font-size: 0.7rem;
+    margin-bottom: 16px;
+  }
+
+  .detail-label {
+    font-size: 0.7rem;
+  }
+
+  .company-link {
+    font-size: 0.8rem;
+  }
+
+  .skill-tag {
+    font-size: 0.6rem;
+    padding: 7px 12px;
+  }
+
+  .points-list li {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .minecraft-experiences {
+    padding: 12px;
+  }
+
+  .crafting-container {
+    max-width: 98%;
+    padding: 11px;
+  }
+
+  .crafting-header {
+    padding: 9px;
+  }
+
+  .logo-slots {
+    gap: 9px;
+  }
+
+  .logo-slot {
+    width: 75px;
+    height: 75px;
+    padding: 7px;
+  }
+
+  .header-title {
+    font-size: 0.72rem;
+    padding: 9px 13px;
+  }
+
+  .experience-details {
+    padding: 14px;
+    min-height: 240px;
+    max-height: 380px;
+  }
+
+  .detail-section {
+    font-size: 0.68rem;
+    margin-bottom: 15px;
+  }
+
+  .detail-label {
+    font-size: 0.68rem;
+  }
+
+  .company-link {
+    font-size: 0.78rem;
+  }
+
+  .skills-list {
+    gap: 8px;
+  }
+
+  .skill-tag {
+    font-size: 0.58rem;
+    padding: 6px 11px;
+  }
+
+  .points-list {
+    padding-left: 16px;
+  }
+
+  .points-list li {
+    font-size: 0.63rem;
   }
 }
 
 @media (max-width: 480px) {
-  .minecraft-book {
-    min-height: 440px;
+  .minecraft-experiences {
+    padding: 10px;
   }
 
-  .book-spine-left {
-    background-color: white;
-    width: 15px;
+  .crafting-container {
+    padding: 10px;
+    border-width: 2px;
   }
 
-  .book-content {
-    padding: 12px 15px 12px 22px;
-    font-size: 0.5rem;
+  .crafting-header {
+    padding: 8px;
+    border-width: 2px;
   }
 
-  .book-text {
-    font-size: 0.5rem;
+  .logo-slots {
+    gap: 8px;
   }
 
-  .book-button {
-    font-size: 0.5rem;
+  .logo-slot {
+    width: 70px;
+    height: 70px;
+    padding: 6px;
+    border-width: 2px;
+  }
+
+  .crafting-content {
+    border-width: 2px;
+  }
+
+  .header-title {
+    font-size: 0.7rem;
+    padding: 10px 12px;
+  }
+
+  .experience-details {
+    padding: 12px;
+    min-height: 220px;
+    max-height: 350px;
+  }
+
+  .detail-section {
+    font-size: 0.65rem;
+    margin-bottom: 14px;
+  }
+
+  .detail-label {
+    font-size: 0.65rem;
+  }
+
+  .company-link {
+    font-size: 0.75rem;
+  }
+
+  .skills-list {
+    gap: 7px;
+  }
+
+  .skill-tag {
+    font-size: 0.55rem;
+    padding: 6px 10px;
+  }
+
+  .points-list {
+    padding-left: 15px;
+  }
+
+  .points-list li {
+    font-size: 0.6rem;
+    margin-bottom: 6px;
+  }
+
+  .points-list li::before {
+    left: -12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .minecraft-experiences {
+    padding: 8px;
+  }
+
+  .crafting-container {
+    padding: 8px;
+  }
+
+  .crafting-header {
+    padding: 7px;
+  }
+
+  .logo-slots {
+    gap: 6px;
+  }
+
+  .logo-slot {
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+  }
+
+  .header-title {
+    font-size: 0.65rem;
     padding: 8px 10px;
   }
-}
 
-/* Nether Theme Overrides */
-.nether .minecraft-book {
-  border-color: #FFB347;
-  box-shadow: 0 0 0 1px rgba(255, 179, 71, 0.5);
-}
+  .experience-details {
+    padding: 10px;
+    min-height: 200px;
+    max-height: 320px;
+  }
 
-.nether .book-page {
-  border-color: #FFB347;
-}
+  .detail-section {
+    font-size: 0.6rem;
+    margin-bottom: 12px;
+  }
 
-.nether .book-page-header {
-  color: #FFB347;
-  border-bottom-color: rgba(255, 179, 71, 0.3);
-}
+  .detail-label {
+    font-size: 0.6rem;
+  }
 
-.nether .book-content {
-  color: #FFB347;
-}
+  .company-link {
+    font-size: 0.7rem;
+  }
 
-.nether .book-text {
-  color: #FFB347;
-}
+  .skills-list {
+    gap: 6px;
+  }
 
-.nether .book-button {
-  border-color: #8B1F1F !important;
-  color: #000 !important;
-}
+  .skill-tag {
+    font-size: 0.52rem;
+    padding: 5px 9px;
+  }
 
-.nether .book-button:hover:not(:disabled) {
-  background-color: #8B1F1F !important;
-  box-shadow: 0 0 8px rgba(139, 31, 31, 0.8) !important;
-  color: #FFB347 !important;
+  .points-list {
+    padding-left: 14px;
+  }
+
+  .points-list li {
+    font-size: 0.58rem;
+    margin-bottom: 5px;
+  }
+
+  .points-list li::before {
+    left: -11px;
+    font-size: 0.5rem;
+  }
 }

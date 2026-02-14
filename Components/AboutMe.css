@@ -143,7 +143,7 @@
 }
 
 .education-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 233, 107, 0.5);
+  background: #ffe96b80;
 }
 
 .education-item {
@@ -200,7 +200,7 @@
   
   .minecraft-about-scroll,
   .minecraft-about-education {
-    max-height: 50vh;
+    max-height: 45vh;
   }
 }
 
@@ -223,6 +223,7 @@
   .minecraft-about-education {
     border-width: 3px;
     padding: 15px;
+    max-height: 400px;
   }
   
   .minecraft-scroll-content h3 {
@@ -231,22 +232,105 @@
   
   .minecraft-scroll-content p {
     font-size: 0.8rem;
+    line-height: 1.7;
   }
   
   .education-header h3 {
     font-size: 0.9rem;
   }
+  
+  .education-item {
+    padding: 12px;
+    min-height: 44px; /* Touch target size */
+  }
+  
+  .education-content {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  .minecraft-about {
+    padding: 12px 8px;
+  }
+  
+  .minecraft-about .minecraft-section-title {
+    font-size: 1.1rem;
+    padding: 7px 9px;
+    border-width: 3px;
+    margin-bottom: 12px;
+  }
+  
+  .minecraft-about-container {
+    gap: 12px;
+  }
+  
+  .minecraft-about-scroll,
+  .minecraft-about-education {
+    border-width: 3px;
+    padding: 14px;
+    max-height: 350px;
+  }
+  
+  .minecraft-scroll-content h3 {
+    font-size: 0.85rem;
+    margin: 15px 0 8px 0;
+  }
+  
+  .minecraft-scroll-content p {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    margin: 8px 0;
+  }
+  
+  .education-header {
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .education-icon {
+    font-size: 1.3rem;
+  }
+  
+  .education-header h3 {
+    font-size: 0.85rem;
+  }
+  
+  .education-item {
+    padding: 14px;
+    min-height: 48px; /* Better touch target */
+  }
+  
+  .education-content {
+    gap: 14px;
+    padding-right: 8px;
+  }
+  
+  .education-degree {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+  
+  .education-school {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+  }
+  
+  .education-year {
+    font-size: 0.65rem;
+  }
 }
 
 @media (max-width: 480px) {
   .minecraft-about {
-    padding: 10px 5px;
+    padding: 10px 6px;
   }
   
   .minecraft-about .minecraft-section-title {
     font-size: 1rem;
     padding: 6px 8px;
     border-width: 2px;
+    margin-bottom: 10px;
   }
   
   .minecraft-about-container {
@@ -257,19 +341,25 @@
   .minecraft-about-education {
     border-width: 2px;
     padding: 12px;
+    max-height: 300px;
   }
   
   .minecraft-scroll-content h3 {
     font-size: 0.8rem;
+    margin: 12px 0 6px 0;
+    padding-bottom: 6px;
   }
   
   .minecraft-scroll-content p {
     font-size: 0.7rem;
     line-height: 1.6;
+    margin: 6px 0;
   }
   
   .education-header {
-    gap: 8px;
+    gap: 6px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
   }
   
   .education-icon {
@@ -280,8 +370,64 @@
     font-size: 0.8rem;
   }
   
+  .education-item {
+    padding: 12px 10px;
+    min-height: 50px; /* Ensure adequate touch target */
+  }
+  
+  .education-content {
+    gap: 12px;
+    padding-right: 6px;
+    max-height: calc(100vh - 320px);
+  }
+  
   .education-degree {
     font-size: 0.75rem;
+    margin-bottom: 5px;
+  }
+  
+  .education-school {
+    font-size: 0.68rem;
+    margin-bottom: 3px;
+  }
+  
+  .education-year {
+    font-size: 0.63rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .minecraft-about {
+    padding: 8px 4px;
+  }
+  
+  .minecraft-about .minecraft-section-title {
+    font-size: 0.9rem;
+    padding: 5px 7px;
+    border-width: 2px;
+  }
+  
+  .minecraft-about-scroll,
+  .minecraft-about-education {
+    padding: 10px;
+    max-height: 280px;
+  }
+  
+  .minecraft-scroll-content h3 {
+    font-size: 0.75rem;
+  }
+  
+  .minecraft-scroll-content p {
+    font-size: 0.68rem;
+    text-align: left; /* Better for small screens */
+  }
+  
+  .education-item {
+    padding: 10px 8px;
+  }
+  
+  .education-degree {
+    font-size: 0.7rem;
   }
   
   .education-school {

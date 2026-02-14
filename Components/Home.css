@@ -485,19 +485,27 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .home-container {
-    gap: 12px;
+    gap: 14px;
     padding: 15px;
   }
   
   .title-with-greeting {
     gap: 0.8rem;
   }
+
+  .action-buttons {
+    gap: 15px;
+  }
 }
 
 @media (max-width: 768px) {
   .home-container {
     padding: 12px;
-    gap: 10px;
+    gap: 12px;
+  }
+
+  .welcome-box {
+    padding: 10px 20px;
   }
 
   .title-with-greeting {
@@ -505,9 +513,18 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .action-buttons {
+    gap: 12px;
+  }
+
+  .minecraft-button {
+    padding: 10px 20px;
+  }
   
   .stats-bar {
     gap: 10px;
+    flex-wrap: wrap;
   }
   
   .stat-item {
@@ -521,16 +538,72 @@
   }
 }
 
+@media (max-width: 640px) {
+  .home-container {
+    padding: 11px;
+    gap: 11px;
+  }
+
+  .welcome-box {
+    padding: 9px 18px;
+  }
+
+  .home-subtitle {
+    max-width: 500px;
+    line-height: 1.7;
+  }
+
+  .action-buttons {
+    gap: 11px;
+  }
+
+  .minecraft-button {
+    padding: 9px 18px;
+  }
+
+  .stats-bar {
+    gap: 9px;
+  }
+
+  .stat-item {
+    min-width: 58px;
+    padding: 7px 11px;
+  }
+
+  .quote-box {
+    padding: 9px 14px;
+    max-width: 420px;
+  }
+}
+
 @media (max-width: 480px) {
   .home-container {
     padding: 10px;
-    gap: 8px;
+    gap: 10px;
+  }
+
+  .welcome-box {
+    padding: 8px 16px;
+  }
+
+  .home-subtitle {
+    max-width: 400px;
+    line-height: 1.6;
   }
 
   .title-with-greeting {
     gap: 0.4rem;
     flex-direction: column;
     align-items: center;
+  }
+
+  .action-buttons {
+    gap: 10px;
+  }
+
+  .minecraft-button {
+    padding: 8px 16px;
+    gap: 8px;
   }
   
   .stats-bar {
@@ -546,5 +619,49 @@
   .quote-box {
     padding: 8px 12px;
     max-width: 350px;
+  }
+}
+
+@media (max-width: 375px) {
+  .home-container {
+    padding: 8px;
+    gap: 9px;
+  }
+
+  .welcome-box {
+    padding: 7px 14px;
+    gap: 8px;
+  }
+
+  .welcome-text {
+    line-height: 1.4;
+  }
+
+  .home-subtitle {
+    max-width: 320px;
+    line-height: 1.6;
+  }
+
+  .action-buttons {
+    gap: 9px;
+  }
+
+  .minecraft-button {
+    padding: 7px 14px;
+    gap: 7px;
+  }
+
+  .stats-bar {
+    gap: 7px;
+  }
+
+  .stat-item {
+    min-width: 50px;
+    padding: 5px 9px;
+  }
+
+  .quote-box {
+    padding: 7px 11px;
+    max-width: 300px;
   }
 }

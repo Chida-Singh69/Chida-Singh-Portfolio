@@ -113,6 +113,7 @@ const Contact = ({ mode = 'overworld' }) => {
     'minecraft_smoker.png',
     'minecraft_spawner.png',
     'minecraft_stone_bricks.png',
+    'minecraft_teal_tuff_lore_bricks.png',
     'minecraft_tinted_glass.png',
     'minecraft_tuff.png',
     'minecraft_chiseled_stone_bricks.png',
@@ -234,10 +235,18 @@ const Contact = ({ mode = 'overworld' }) => {
                 </div>
               </a>
 
-              <a href="https://github.com/Chida-Singh69" target="_blank" rel="noopener noreferrer" className="log-entry">
+              <a href="https://github.com/Chida-singh" target="_blank" rel="noopener noreferrer" className="log-entry">
                 <img src={`/assets/${contactIcons.github}`} alt="GitHub" className="entry-icon" />
                 <div className="entry-content">
                   <span className="log-label">GITHUB:</span>
+                  <span className="log-value">github.com/chida-singh</span>
+                </div>
+              </a>
+
+              <a href="https://github.com/Chida-Singh69" target="_blank" rel="noopener noreferrer" className="log-entry">
+                <img src={`/assets/${contactIcons.github}`} alt="GitHub" className="entry-icon" />
+                <div className="entry-content">
+                  <span className="log-label">GITHUB (ALT cause free copilot):</span>
                   <span className="log-value">github.com/chida-singh69</span>
                 </div>
               </a>

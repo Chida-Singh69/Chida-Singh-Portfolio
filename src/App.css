@@ -157,7 +157,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 6px;
   width: 100%;
   min-height: 170px;
   border: none;
@@ -402,12 +402,47 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .minecraft-left-sidebar,
+  .minecraft-world {
+    flex-direction: column;
+  }
+
+  .minecraft-left-sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    border-right: none;
+    border-bottom: 4px solid rgba(25, 25, 25, 0.7);
+    padding: 10px 24px;
+    gap: 20px;
+  }
+
   .minecraft-right-sidebar {
-    padding: 10px 5px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    border-left: none;
+    border-top: 4px solid rgba(25, 25, 25, 0.7);
+    padding: 10px;
+    min-height: auto;
     gap: 10px;
+    z-index: 10;
+  }
+
+  .minecraft-content {
+    padding: 30px 10px 10px 10px;
+    height: auto;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+    align-items: flex-start;
   }
   
+  .minecraft-section-content {
+    height: auto;
+    min-height: 100%;
+  }
+
   .sidebar-item {
     width: 50px;
     height: 50px;
@@ -415,14 +450,19 @@
   }
 
   .sidebar-item.mode-toggle {
-    width: 50px;
-    min-height: 145px;
+    width: auto;
+    height: 50px;
+    min-height: auto;
+    flex-direction: row;
   }
 
   .mode-toggle-vertical {
-    min-height: 145px;
-    padding: 4px 0;
-    gap: 6px;
+    flex-direction: row;
+    min-height: auto;
+    height: 50px;
+    width: 156px;
+    padding: 0 4px;
+    gap: 8px;
     border-radius: 40px;
   }
 
@@ -437,19 +477,41 @@
   }
 
   .mode-toggle-track {
-    width: 22px;
-    height: 52px;
+    width: 56px;
+    height: 24px;
     padding: 2px;
+    flex-direction: row;
+    align-items: center;
   }
 
   .mode-toggle-thumb {
-    height: 22px;
+    height: 100%;
+    width: 22px;
+    transform: translateY(0);
+  }
+
+  .mode-toggle-thumb.nether {
+    transform: translateX(130%) translateY(0);
   }
   
   .sidebar-nav-item {
     width: 50px;
     height: 50px;
     padding: 5px;
+    background: transparent;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .sidebar-nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+  }
+
+  .sidebar-nav-item.active {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.3);
   }
   
   .sidebar-icon {
@@ -469,8 +531,7 @@
   
   .sidebar-item[data-tooltip]:hover::after,
   .sidebar-nav-item[data-tooltip]:hover::after {
-    font-size: 0.6rem;
-    padding: 6px 10px;
+    display: none;
   }
 }
 

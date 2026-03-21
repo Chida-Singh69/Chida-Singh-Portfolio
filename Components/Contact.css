@@ -327,6 +327,8 @@
 @media (max-width: 768px) {
   .minecraft-contact {
     padding: 12px;
+    height: auto;
+    min-height: 100%;
   }
 
   .beacon-title {

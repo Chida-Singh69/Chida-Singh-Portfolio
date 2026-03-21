@@ -207,6 +207,8 @@
 @media (max-width: 768px) {
   .minecraft-about {
     padding: 15px 10px;
+    height: auto;
+    min-height: 100%;
   }
   
   .minecraft-about .minecraft-section-title {
@@ -223,7 +225,7 @@
   .minecraft-about-education {
     border-width: 3px;
     padding: 15px;
-    max-height: 400px;
+    max-height: none;
   }
   
   .minecraft-scroll-content h3 {
@@ -269,7 +271,7 @@
   .minecraft-about-education {
     border-width: 3px;
     padding: 14px;
-    max-height: 350px;
+    max-height: none;
   }
   
   .minecraft-scroll-content h3 {
@@ -341,7 +343,7 @@
   .minecraft-about-education {
     border-width: 2px;
     padding: 12px;
-    max-height: 300px;
+    max-height: none;
   }
   
   .minecraft-scroll-content h3 {
@@ -378,7 +380,7 @@
   .education-content {
     gap: 12px;
     padding-right: 6px;
-    max-height: calc(100vh - 320px);
+    max-height: none;
   }
   
   .education-degree {
@@ -410,7 +412,7 @@
   .minecraft-about-scroll,
   .minecraft-about-education {
     padding: 10px;
-    max-height: 280px;
+    max-height: none;
   }
   
   .minecraft-scroll-content h3 {

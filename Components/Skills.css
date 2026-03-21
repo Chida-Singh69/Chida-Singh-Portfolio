@@ -116,7 +116,7 @@
 
 @media (max-width: 768px) {
   .skills-section {
-    padding: 15px 10px;
+    padding: 30px 10px 15px 10px;
   }
   
   .minecraft-chest-container {
@@ -157,7 +157,7 @@
 
 @media (max-width: 480px) {
   .skills-section {
-    padding: 10px 5px;
+    padding: 30px 5px 10px 5px;
   }
   
   .minecraft-chest-container {

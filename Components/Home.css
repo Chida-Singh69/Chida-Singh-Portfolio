@@ -502,6 +502,7 @@
   .home-container {
     padding: 12px;
     gap: 12px;
+    min-height: calc(100vh - 180px);
   }
 
   .welcome-box {

@@ -162,7 +162,7 @@ const Contact = ({ mode = 'overworld' }) => {
 
   const handleGuess = () => {
     if (guess.toLowerCase().trim() === correctAnswer.toLowerCase()) {
-      setMessage('Nice cock, now go touch grass');
+      setMessage('Nerdddd, now go touch grass');
       setShowMessage(true);
     } else {
       setMessage(`Nope! The answer was: ${correctAnswer}`);
@@ -205,7 +205,7 @@ const Contact = ({ mode = 'overworld' }) => {
                 </button>
               </div>
               {showMessage && (
-                <div className={`guess-message ${message.includes('Nice cock') ? 'correct' : 'incorrect'}`}>
+                <div className={`guess-message ${message.includes('Nerdddd') ? 'correct' : 'incorrect'}`}>
                   {message}
                 </div>
               )}

@@ -34,7 +34,7 @@ const AboutMe = ({ mode = 'overworld' }) => {
         
         <div className="minecraft-about-education">
           <div className="education-header">
-            <div className="education-icon"><img src="/assets/minecraft_creeper_banner_pattern.png" alt="" /></div>
+            <div className="education-icon"><img src="/assets/minecraft_creeper_banner_pattern.png" alt="Side Quests Icon" /></div>
             <h3>SIDE QUESTS</h3>
           </div>
           

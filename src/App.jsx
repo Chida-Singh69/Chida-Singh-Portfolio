@@ -14,6 +14,20 @@ import '@fontsource/press-start-2p/index.css'
 function App() {
   const [currentSection, setCurrentSection] = useState('home')
   const [mode, setMode] = useState('overworld') // 'overworld' or 'nether'
+  const [isLowRes, setIsLowRes] = useState(false)
+  
+  useEffect(() => {
+    const checkLowRes = () => {
+      const isMobile = window.innerWidth <= 768;
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      const isSlow = connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g' || connection.saveData);
+      setIsLowRes(isMobile || isSlow);
+    };
+
+    checkLowRes();
+    window.addEventListener('resize', checkLowRes);
+    return () => window.removeEventListener('resize', checkLowRes);
+  }, []);
   
   const toggleMode = () => {
     setMode(prev => prev === 'overworld' ? 'nether' : 'overworld')
@@ -63,14 +77,17 @@ function App() {
         muted 
         playsInline
         className="video-background"
-        src={mode === 'overworld' ? '/background/Overworld_wallpaper.mp4' : '/background/Nether_wallpaper.mp4'}
+        src={mode === 'overworld' 
+          ? (isLowRes ? '/background/Overworld_wallpaper_compressed.mp4' : '/background/Overworld_wallpaper.mp4')
+          : (isLowRes ? '/background/Nether_wallpaper_compressed.mp4' : '/background/Nether_wallpaper.mp4')
+        }
       />
       <div className="video-overlay"></div>
       
       {/* Left Sidebar - Info & Mode Toggle */}
       <div className="minecraft-left-sidebar">
-        <div className="sidebar-item home-button" onClick={() => handleNavClick('home')} data-tooltip="Home">
-          <img src="/assets/minecraft_ender_pearl.png" alt="Home" className="sidebar-icon" />
+        <div className="sidebar-item home-button" onClick={() => handleNavClick('home')} data-tooltip="Home" aria-label="Go to home section">
+          <img src="/assets/minecraft_ender_pearl.png" alt="Home Icon" className="sidebar-icon" />
         </div>
         <div className="sidebar-item mode-toggle" data-tooltip={`Mode: ${mode === 'overworld' ? 'Overworld' : 'Nether'}`}>
           <button
@@ -117,36 +134,41 @@ function App() {
           className={`sidebar-nav-item ${currentSection === 'projects' ? 'active' : ''}`}
           onClick={() => handleNavClick('projects')}
           data-tooltip="Projects"
+          aria-label="View projects"
         >
-          <img src="/assets/minecraft_crafting_table.png" alt="Projects" className="sidebar-nav-icon" />
+          <img src="/assets/minecraft_crafting_table.png" alt="Projects Icon" className="sidebar-nav-icon" />
         </div>
         <div 
           className={`sidebar-nav-item ${currentSection === 'experience' ? 'active' : ''}`}
           onClick={() => handleNavClick('experience')}
           data-tooltip="Experience"
+          aria-label="View experience"
         >
-          <img src="/assets/minecraft_experience_bottle.png" alt="Experience" className="sidebar-nav-icon" />
+          <img src="/assets/minecraft_experience_bottle.png" alt="Experience Icon" className="sidebar-nav-icon" />
         </div>
         <div 
           className={`sidebar-nav-item ${currentSection === 'skills' ? 'active' : ''}`}
           onClick={() => handleNavClick('skills')}
           data-tooltip="Skills"
+          aria-label="View skills"
         >
-          <img src="/assets/minecraft_anvil.png" alt="Skills" className="sidebar-nav-icon" />
+          <img src="/assets/minecraft_anvil.png" alt="Skills Icon" className="sidebar-nav-icon" />
         </div>
         <div 
           className={`sidebar-nav-item ${currentSection === 'about' ? 'active' : ''}`}
           onClick={() => handleNavClick('about')}
           data-tooltip="About"
+          aria-label="View about me"
         >
-          <img src="/logos/chida_head_logo.png" alt="About" className="sidebar-nav-icon about-nav-icon" />
+          <img src="/logos/chida_head_logo.png" alt="About Icon" className="sidebar-nav-icon about-nav-icon" />
         </div>
         <div 
           className={`sidebar-nav-item ${currentSection === 'contact' ? 'active' : ''}`}
           onClick={() => handleNavClick('contact')}
           data-tooltip="Contact"
+          aria-label="View contact section"
         >
-          <img src="/assets/minecraft_writable_book.png" alt="Contact" className="sidebar-nav-icon" />
+          <img src="/assets/minecraft_writable_book.png" alt="Contact Icon" className="sidebar-nav-icon" />
         </div>
       </div>
     </div>

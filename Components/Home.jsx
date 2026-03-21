@@ -25,12 +25,12 @@ const Home = ({ mode = 'overworld', onNavigate }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 0.5 }}
       >
-        <a href="/Chidananda_resume.pdf" target="_blank" rel="noopener noreferrer" className="minecraft-button download-resume">
-          <img src="/assets/minecraft_cherry_sign.png" alt="Resume" className="button-icon" />
+        <a href="/Chidananda_resume.pdf" target="_blank" rel="noopener noreferrer" className="minecraft-button download-resume" aria-label="View and download Chidananda Singh's resume">
+          <img src="/assets/minecraft_cherry_sign.png" alt="Resume Icon" className="button-icon" />
           View Resume
         </a>
-        <button className="minecraft-button contact-me" onClick={() => onNavigate && onNavigate('contact')}>
-          <img src="/assets/minecraft_writable_book.png" alt="Contact" className="button-icon" />
+        <button className="minecraft-button contact-me" onClick={() => onNavigate && onNavigate('contact')} aria-label="Navigate to the contact section">
+          <img src="/assets/minecraft_writable_book.png" alt="Contact Icon" className="button-icon" />
           Contact Me
         </button>
       </motion.div>

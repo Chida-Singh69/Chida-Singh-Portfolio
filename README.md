@@ -56,8 +56,4 @@ Showcases projects, experience, skills, and contact info in a pixel-art UI with 
 ## Credits
 
 - Minecraft assets and icons are property of Mojang/Microsoft, used for personal portfolio purposes.
-- Background image by Chidananda Singh A.
-
 ---
-
-*Built with ❤️ and blocks by Chidananda Singh A*

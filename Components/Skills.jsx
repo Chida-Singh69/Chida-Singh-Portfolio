@@ -46,6 +46,7 @@ function Skills({ mode }) {
                   src={skill.logo} 
                   alt={skill.name} 
                   className="skill-logo" 
+                  loading="lazy"
                   onError={(e) => e.target.style.display = 'none'} 
                 />
               </div>

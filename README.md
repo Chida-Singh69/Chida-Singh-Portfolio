@@ -1,59 +1,78 @@
-# Chida's Minecraft Portfolio
+# Chidananda Singh Portfolio - Technical Guide
 
-A **Minecraft-inspired personal portfolio** built with **React + Vite**.  
-Showcases projects, experience, skills, and contact info in a pixel-art UI with smooth animations and section snap scrolling.
+This document describes the technical architecture and implementation details of this Minecraft-inspired personal portfolio. It is designed to help anyone understand how the project functions and how the various advanced web technologies are integrated.
 
-## Features
+## Project Overview
 
-- **Minecraft Theme:** Inventory-style navigation, pixel fonts, blocky icons, and game-inspired backgrounds.
-- **Smooth Animations:** Section transitions and interactive UI using Framer Motion.
-- **Snap Scrolling:** Each section fits perfectly on scroll for a seamless experience.
-- **Responsive Design:** Works on desktop and mobile.
-- **Easy Project Expansion:** Add new projects by editing a single array.
-- **Asset-Based Icons:** Uses real Minecraft item/block icons from the `/src/assets` folder.
-- **Custom Background:** Beautiful Minecraft sunset wallpaper from `/src/background`.
+The portfolio is a high-performance, single-page application (SPA) that uses a pixel-art design theme. It features interactive navigation, dynamic themes, and a range of technical optimizations to ensure a smooth user experience.
 
-## Sections
+## Core Technologies
 
-- **Home:** Name, title, and navigation.
-- **Projects:** Inventory grid with project details, tech stack, and links.
-- **Experience:** Timeline with roles, dates, and highlights.
-- **Skills:** Displayed as Minecraft items.
-- **About:** Education and personal info.
-- **Contact:** Social links and email.
+The following tools and libraries form the foundation of this project:
 
-## Getting Started
+- **React:** A JavaScript library for building the user interface through reusable components.
+- **Vite:** A modern build tool and development server that provides fast reload times and efficient bundling.
+- **Framer Motion:** Used to create all the smooth transitions and interactive animations across the site.
+- **Custom CSS:** Vanilla CSS is used for all styling to maintain a unique, blocky Minecraft aesthetic.
+- **SASS:** For structured and maintainable styles.
+- **React Three Fiber (Draft):** The infrastructure for future 3D enhancements is pre-installed.
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-2. **Run the development server:**
-   ```bash
-   npm run dev
-   ```
-3. **Open in browser:**  
-   Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
+## Performance Features
 
-## Customization
+Performance was a primary goal during development. Several techniques are used to reduce initial load times:
 
-- **Add Projects:**  
-  Edit `src/Components/Projects.jsx` and add to the `projectsData` array.
-- **Change Background:**  
-  Replace `/src/background/evening_sunset_background.jpg` with your own image.
-- **Update Icons:**  
-  Add or replace icons in `/src/assets` and update references in components.
-- **Edit Content:**  
-  Update text and details in each section's component file.
+### Asset Preloading and Prefetching
+Critical assets like the main logo, fonts, and primary background images are preloaded in the HTML head. This tells the browser to download these items first. Other assets, like alternate backgrounds, are prefetched in the background after the main page is ready.
 
-## Tech Stack
+### Video Poster Images
+The high-quality video backgrounds are large files. To prevent a blank screen while they load, static "poster" images are used. This ensures the site looks complete from the very first second.
 
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Custom CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+### Code Splitting
+The project uses `React.lazy` and `Suspense`. The code for sections like Projects, Skills, and Contact is only downloaded when a user clicks on them. This keeps the initial download size small and the startup time fast.
 
-## Credits
+### Image Lazy Loading
+Non-essential images like project icons and skill logos use the `loading="lazy"` attribute. They only load when they are about to become visible on the screen.
 
-- Minecraft assets and icons are property of Mojang/Microsoft, used for personal portfolio purposes.
----
+## SEO and Accessibility
+
+The site is optimized to be easily discoverable by search engines and accessible to all users.
+
+- **Descriptive Meta Tags:** Custom titles and descriptions are provided to improve search result appearance.
+- **Open Graph and Twitter Cards:** These tags ensure that links shared on social media (LinkedIn, Twitter, etc.) display a professional preview with an image.
+- **JSON-LD Structured Data:** The site includes a schema for "Person" and "WebSite" in JSON format. This helps Google understand your professional details and social media links.
+- **Accessibility:** Images include descriptive alt text, and buttons use ARIA labels to help screen reader users.
+
+## PWA and Offline Support
+
+This site is a Progressive Web App (PWA), meaning it can be installed on a device and accessed without an internet connection.
+
+### Web Manifest
+The `manifest.json` file provides the browser with the metadata needed to install the site as an application. It includes branding colors, app icons, and display settings.
+
+### Service Worker
+A service worker (`sw.js`) is used to cache assets on the user's device. It includes a specialized handler for background videos to support "Range Requests." This is a technical requirement for certain browsers to play videos from a local cache correctly.
+
+## Theme Management
+
+The site features two main themes: Overworld and Nether.
+
+- **Theme Toggle:** Users can switch between themes through a vertical toggle switch in the sidebar.
+- **CSS Variables:** Themes are managed using CSS variables. Changing the theme updates colors and video backgrounds globally.
+- **Adaptive Video:** The project automatically detects slow internet or mobile devices and serves smaller, compressed versions of the background videos to save data.
+
+## Project Structure
+
+- **/public:** Contains static assets like background videos, the manifest, robots.txt, and the service worker.
+- **/src/Components:** Contains the individual React components for each section (Home, Projects, etc.).
+- **/src/assets:** Contains the pixel-art icons and logos used throughout the site.
+- **/src/App.jsx:** The main coordination point for navigation, themes, and asset management.
+
+## Setup Instructions
+
+To run this project locally:
+
+1. Install all dependencies using `npm install`.
+2. Start the development server with `npm run dev`.
+3. Open the link provided in your terminal (usually http://localhost:5173).
+
+For production, run `npm run build` to generate the optimized files in the `/dist` folder.

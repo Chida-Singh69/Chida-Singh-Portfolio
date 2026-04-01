@@ -184,7 +184,7 @@ const MinecraftProjects = ({ mode = 'overworld' }) => {
           {project && (
             <>
               <div className="inventory-item">
-                <img src={project.icon} alt={project.title} className="item-icon" />
+                <img src={project.icon} alt={project.title} className="item-icon" loading="lazy" />
               </div>
             </>
           )}
@@ -222,7 +222,7 @@ const MinecraftProjects = ({ mode = 'overworld' }) => {
         >
           <div className="project-display">
             <div className="project-icon-large">
-              <img src={project.icon} alt={project.title} className="project-icon-img" />
+              <img src={project.icon} alt={project.title} className="project-icon-img" loading="lazy" />
             </div>
             <div className="project-title-section">
               <h2 className="project-name">{project.title}</h2>

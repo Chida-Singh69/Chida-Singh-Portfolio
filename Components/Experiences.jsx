@@ -70,6 +70,7 @@ const Experiences = ({ mode = "overworld" }) => {
                   src={exp.logo} 
                   alt={exp.company}
                   className="company-logo"
+                  loading="lazy"
                 />
               </div>
             ))}

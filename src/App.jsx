@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './App.css'
 import './components.css'
 import './minecraft-icons.css'
-import AboutMe from '../Components/AboutMe.jsx'
-import Contact from '../Components/Contact.jsx'
-import Experiences from '../Components/Experiences.jsx'
 import Home from '../Components/Home.jsx'
-import Projects from '../Components/Projects.jsx'
-import Skills from '../Components/Skills.jsx'
 import '@fontsource/press-start-2p/index.css'
+
+// Lazy load components that are not needed immediately
+const AboutMe = lazy(() => import('../Components/AboutMe.jsx'));
+const Contact = lazy(() => import('../Components/Contact.jsx'));
+const Experiences = lazy(() => import('../Components/Experiences.jsx'));
+const Projects = lazy(() => import('../Components/Projects.jsx'));
+const Skills = lazy(() => import('../Components/Skills.jsx'));
 
 function App() {
   const [currentSection, setCurrentSection] = useState('home')
@@ -49,21 +51,62 @@ function App() {
   
   // Function to render the active section content
   const renderSection = () => {
-    switch(currentSection) {
-      case 'home':
-        return <Home mode={mode} onNavigate={handleNavClick} />;
-      case 'projects':
-        return <Projects mode={mode} />;
-      case 'experience':
-        return <Experiences mode={mode} />;
-      case 'about':
-        return <AboutMe mode={mode} />;
-      case 'contact':
-        return <Contact mode={mode} />;
-      case 'skills':
-        return <Skills mode={mode} />;
-      default:
-        return <Home />;
+    return (
+      <Suspense fallback={
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: '#fff', fontFamily: "'Press Start 2P', cursive", fontSize: '12px' }}>
+          LOADING...
+        </div>
+      }>
+        {(() => {
+          switch(currentSection) {
+            case 'home':
+              return <Home mode={mode} onNavigate={handleNavClick} />;
+            case 'projects':
+              return <Projects mode={mode} />;
+            case 'experience':
+              return <Experiences mode={mode} />;
+            case 'about':
+              return <AboutMe mode={mode} />;
+            case 'contact':
+              return <Contact mode={mode} />;
+            case 'skills':
+              return <Skills mode={mode} />;
+            default:
+              return <Home mode={mode} onNavigate={handleNavClick} />;
+          }
+        })()}
+      </Suspense>
+    );
+  };
+
+  // Effect to hide the initial loader once the app is ready
+  useEffect(() => {
+    const handleInitialLoad = () => {
+      const loader = document.getElementById('initial-loader');
+      if (loader) {
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 0.5s ease-out';
+        setTimeout(() => {
+          loader.remove();
+        }, 500);
+      }
+    };
+
+    // We consider the app ready when the first scene is loaded
+    // This can be triggered by the video's onCanPlayThrough or a timeout
+    const timeout = setTimeout(handleInitialLoad, 3000); // Max 3 seconds fallback
+    
+    return () => clearTimeout(timeout);
+  }, [currentSection]);
+
+  const handleVideoReady = () => {
+    const loader = document.getElementById('initial-loader');
+    if (loader) {
+      loader.style.opacity = '0';
+      loader.style.transition = 'opacity 0.5s ease-out';
+      setTimeout(() => {
+        loader.remove();
+      }, 500);
     }
   };
 
@@ -76,12 +119,15 @@ function App() {
         loop 
         muted 
         playsInline
+        onCanPlay={handleVideoReady}
         className="video-background"
+        poster={mode === 'overworld' ? '/background/Overworld_poster.png' : '/background/Nether_poster.png'}
         src={mode === 'overworld' 
           ? (isLowRes ? '/background/Overworld_wallpaper_compressed.mp4' : '/background/Overworld_wallpaper.mp4')
           : (isLowRes ? '/background/Nether_wallpaper_compressed.mp4' : '/background/Nether_wallpaper.mp4')
         }
       />
+
       <div className="video-overlay"></div>
       
       {/* Left Sidebar - Info & Mode Toggle */}

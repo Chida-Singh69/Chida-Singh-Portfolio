@@ -1,20 +1,35 @@
 {
-  "name": "Chidananda Singh Portfolio",
+  "name": "Chidananda Singh | Personal Portfolio",
   "short_name": "Chida",
+  "description": "Full-Stack Developer & UI/UX Designer Portfolio. Interactive Minecraft-themed experience.",
   "start_url": "/",
+  "id": "/?source=pwa",
   "display": "standalone",
   "background_color": "#121212",
   "theme_color": "#121212",
+  "categories": ["portfolio", "resume", "developer"],
   "icons": [
     {
       "src": "/logos/chida_icon.png",
+      "type": "image/png",
       "sizes": "192x192",
-      "type": "image/png"
+      "purpose": "any"
     },
     {
       "src": "/logos/chida_icon.png",
+      "type": "image/png",
       "sizes": "512x512",
-      "type": "image/png"
+      "purpose": "any"
+    },
+    {
+      "src": "/logos/chida_icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "orientation": "portrait-primary",
+  "dir": "ltr",
+  "lang": "en-US"
 }
+

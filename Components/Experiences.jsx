@@ -9,11 +9,12 @@ const experiencesData = [
     companyUrl: "https://www.nasdaq.com/solutions/sustainability/metrio",
     role: "SDE Intern",
     period: "Jan 2026 – Present",
-    skills: ["Go Lang", "Backend Development","AG UI"],
+    skills: ["Go Lang", "Backend Development", "AG UI","VsCode Extension"],
     points: [
-      "<Redacted>.",
-      "<Redacted>.",
-      "<Redacted>."
+      "Shipped 2 production-grade REST APIs in Go with 100% test coverage.",
+      "Built a VS Code extension optimizing Copilot usage, reducing token consumption by ~30%.",
+      "Authored custom instructions reducing bad code generation by ~30%.",
+      "Architected an AG-UI protocol POC across 3 layers."
     ],
     logo: "/logos/nasdaq-logo-png_seeklogo-426643.webp"
   },
@@ -56,18 +57,18 @@ const Experiences = ({ mode = "overworld" }) => {
   return (
     <div className={`minecraft-experiences ${mode}`}>
       <div className="crafting-container">
-        
+
         {/* Top bar with logo slots */}
         <div className="crafting-header">
           <div className="logo-slots">
             {experiencesData.map((exp, idx) => (
-              <div 
+              <div
                 key={exp.id}
                 className={`logo-slot ${selectedExp === idx ? 'selected' : ''}`}
                 onClick={() => setSelectedExp(idx)}
               >
-                <img 
-                  src={exp.logo} 
+                <img
+                  src={exp.logo}
                   alt={exp.company}
                   className="company-logo"
                   loading="lazy"
@@ -91,10 +92,10 @@ const Experiences = ({ mode = "overworld" }) => {
             transition={{ duration: 0.3 }}
           >
             <div className="detail-section">
-              <a 
-                href={currentExp.companyUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={currentExp.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="company-link"
               >
                 {currentExp.company}

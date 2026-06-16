@@ -5,17 +5,30 @@ import './Projects.css';
 // Project data structure
 const projectsData = [
   {
-    id: 1,
+    title: "Local AI Personal Assistant",
+    description: "Architected an 8-service microservices system with a Go/Gin API gateway, PostgreSQL persistence, and Docker Compose deployment. Built a local LLM-powered finance service and intent-based orchestrator using Ollama.",
+    icon: "/assets/minecraft_wolf_spawn_egg.png",
+    techStack: "Go • Gin • Python • FastAPI • React • PostgreSQL • Docker • Ollama",
+    github: "https://github.com/Chida-singh/personal-assistant",
+    demo: null
+  },
+  {
+    title: "SilentVoice — ASL Animation Suite",
+    description: "Built a 3D ASL synthesis system over a 31K+ sentence corpus with 88% semantic accuracy. Implemented VAE latent space blending for SMPL-X avatars and shipped a YouTube Chrome extension for real-time overlay.",
+    icon: "/assets/minecraft_sheep_spawn_egg.png",
+    techStack: "Python • SMPL-X • Sentence-BERT • FAISS • VAE • React",
+    github: "https://github.com/Chida-singh/SMPLX",
+    demo: null
+  },
+  {
     title: "SYMBIONT",
     description: "Virtual Pet Health & Wellness Platform with gamified capybara pet, real-time animations, and XP progression. Nutrition tracking via text, barcode & OCR with Nutritionix API. AI health assistant using Google Gemini.",
     icon: "/assets/minecraft_panda_spawn_egg.png",
     techStack: "React • Express.js • Firebase • Socket.IO • Google Gemini AI",
     github: "https://github.com/cupnoodles7/symbiont",
     demo: null
-    
   },
   {
-    id: 2,
     title: "Talk Tuah Therapist",
     description: "Mental health web platform with AI-powered chatbots and therapy modules. Real-time interactive support using Google Generative AI and speech recognition. Interactive UI with data visualization.",
     icon: "/assets/minecraft_snow_golem_spawn_egg.png",
@@ -24,27 +37,6 @@ const projectsData = [
     demo: null
   },
   {
-    id: 3,
-    title: "Transcript Summarizer & Gloss Translator",
-    description: "Full-stack application fetching YouTube transcripts and processing them using NLP. AI-powered topic segmentation with TF-IDF + K-Means clustering, keyword extraction, and sign language gloss format translation.",
-    icon: "/assets/minecraft_wolf_spawn_egg.png",
-    techStack: "React • Flask • NLTK • scikit-learn • youtube-transcript-api",
-    github: "https://github.com/Chida-singh/transcript_summarizer",
-    demo: null
-  },
-  {
-    id: 4,
-    title: "English-to-Gloss Translator",
-    description: "Custom training pipeline to fine-tune MarianMT on English-to-Gloss translation. Data preprocessing, dynamic tokenization with PyTorch GlossDataset. Logging, evaluation & checkpoint saving for model management.",
-    icon: "/assets/minecraft_sheep_spawn_egg.png",
-    techStack: "Python • PyTorch • Transformers • HuggingFace • MarianMT",
-    github: "https://github.com/Chida-singh/gloss_translator",
-    demo: null
-
-  
-  },
-  {
-    id: 5,
     title: "Google Forms Auto Filler Pro",
     description: "Smart Chrome extension that auto-fills Google Forms using intelligent field recognition and adaptive data learning. Supports text, dropdowns, checkboxes, dates, and dynamic Google Forms structures with robust storage management.",
     icon: "/assets/minecraft_goat_spawn_egg.png",
@@ -53,7 +45,6 @@ const projectsData = [
     demo: null
   },
   {
-    id: 6,
     title: "Family Tree Visualizer",
     description: "Interactive family tree generator handling 50+ nodes with drag-and-drop. Dynamic node operations (add, edit, delete) reducing setup effort by 70%. 4-directional edge connections for complex family networks.",
     icon: "/assets/minecraft_piglin_spawn_egg.png",
@@ -62,7 +53,6 @@ const projectsData = [
     demo: null
   },
   {
-    id: 7,
     title: "Telegram Placement Tracker",
     description: "Desktop tool monitoring placement updates, events & deadlines from Telegram in real-time. Regex-based classification and JSON storage. Multi-tab UI with filters and auto-refresh.",
     icon: "/assets/minecraft_chicken_spawn_egg.png",
@@ -71,7 +61,6 @@ const projectsData = [
     demo: null
   },
   {
-    id: 8,
     title: "AR Ball Shooter Game",
     description: "AR game with plane detection and object interaction using AR Foundation. XR origins and session management for stable AR experiences. Reusable 3D prefabs and UI controls.",
     icon: "/assets/minecraft_creeper_spawn_egg.png",
@@ -80,7 +69,6 @@ const projectsData = [
     demo: null
   },
   {
-    id: 9,
     title: "Traffic Management System",
     description: "Automated traffic signal controller based on real-time traffic density. AI techniques integrated with sensor data to optimize signal timing and improve efficiency.",
     icon: "/assets/minecraft_turtle_spawn_egg.png",
@@ -89,7 +77,6 @@ const projectsData = [
     demo: null
   },
   {
-    id: 10,
     title: "Multiplayer Tic Tac Toe",
     description: "Real-time two-player game with Socket.IO and Express. Client-server communication with game state sync and win/draw detection. Responsive UI with reset/rematch logic and cross-device support.",
     icon: "/assets/minecraft_axolotl_spawn_egg.png",
@@ -98,7 +85,6 @@ const projectsData = [
     demo: null
   },
   {
-    id: 11,
     title: "Atmosphere Weather App",
     description: "Responsive weather web application with real-time data using WeatherAPI. Adaptive background gradients and debounce-based API calls. Dynamic front-end with Tailwind CSS.",
     icon: "/assets/minecraft_bat_spawn_egg.png",
@@ -107,7 +93,6 @@ const projectsData = [
     demo: null
   },
   {
-    id: 12,
     title: "2D Mario Game",
     description: "Side-scrolling platformer with character controls and collectibles. Collision detection, enemy AI, and level progression. Game assets and animations following Unity best practices.",
     icon: "/assets/minecraft_bee_spawn_egg.png",

@@ -26,7 +26,7 @@
 
 /* Crafting Container - Matching Projects page style */
 .crafting-container {
-  max-width: 700px;
+  max-width: 62.5rem; /* 1000px / 16px = 62.5rem */
   width: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(2px);
@@ -74,7 +74,7 @@
   background-color: #e3a74d;
   border-color: #ffcc00;
   transform: translateY(-4px);
-  box-shadow: 
+  box-shadow:
     inset 0 0 0 2px rgba(255, 255, 255, 0.3),
     0 0 8px rgba(255, 204, 0, 0.6);
 }
@@ -82,7 +82,7 @@
 .logo-slot.selected {
   background-color: rgba(227, 167, 77, 0.5);
   border-color: #ffcc00;
-  box-shadow: 
+  box-shadow:
     inset 0 0 0 2px rgba(255, 255, 255, 0.3),
     0 0 8px rgba(255, 204, 0, 0.8),
     0 0 16px rgba(255, 213, 79, 0.4);
@@ -251,7 +251,7 @@
 .nether .logo-slot:hover {
   background-color: #8B1F1F;
   border-color: #FFB347;
-  box-shadow: 
+  box-shadow:
     inset 0 0 0 2px rgba(255, 179, 71, 0.3),
     0 0 8px rgba(139, 31, 31, 0.6);
 }
@@ -259,7 +259,7 @@
 .nether .logo-slot.selected {
   background-color: rgba(139, 31, 31, 0.6);
   border-color: #FFB347;
-  box-shadow: 
+  box-shadow:
     inset 0 0 0 2px rgba(255, 179, 71, 0.3),
     0 0 8px rgba(139, 31, 31, 0.8),
     0 0 16px rgba(255, 179, 71, 0.5);
@@ -383,8 +383,8 @@
   }
 
   .detail-section {
-    font-size: 0.7rem;
-    margin-bottom: 16px;
+    font-size: 0.5rem;
+    margin-bottom: 11px;
   }
 
   .detail-label {
@@ -396,8 +396,8 @@
   }
 
   .skill-tag {
-    font-size: 0.6rem;
-    padding: 7px 12px;
+    font-size: 0.45rem;
+    padding: 5px 8px;
   }
 
   .points-list li {
@@ -441,8 +441,8 @@
   }
 
   .detail-section {
-    font-size: 0.68rem;
-    margin-bottom: 15px;
+    font-size: 0.48rem;
+    margin-bottom: 10px;
   }
 
   .detail-label {
@@ -458,8 +458,8 @@
   }
 
   .skill-tag {
-    font-size: 0.58rem;
-    padding: 6px 11px;
+    font-size: 0.4rem;
+    padding: 4px 8px;
   }
 
   .points-list {
@@ -513,8 +513,8 @@
   }
 
   .detail-section {
-    font-size: 0.65rem;
-    margin-bottom: 14px;
+    font-size: 0.45rem;
+    margin-bottom: 10px;
   }
 
   .detail-label {
@@ -530,8 +530,8 @@
   }
 
   .skill-tag {
-    font-size: 0.55rem;
-    padding: 6px 10px;
+    font-size: 0.4rem;
+    padding: 4px 7px;
   }
 
   .points-list {
@@ -583,8 +583,8 @@
   }
 
   .detail-section {
-    font-size: 0.6rem;
-    margin-bottom: 12px;
+    font-size: 0.42rem;
+    margin-bottom: 8px;
   }
 
   .detail-label {
@@ -600,8 +600,8 @@
   }
 
   .skill-tag {
-    font-size: 0.52rem;
-    padding: 5px 9px;
+    font-size: 0.36rem;
+    padding: 3px 6px;
   }
 
   .points-list {

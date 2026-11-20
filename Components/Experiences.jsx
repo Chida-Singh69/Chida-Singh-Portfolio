@@ -7,14 +7,20 @@ const experiencesData = [
     id: 1,
     company: "Nasdaq",
     companyUrl: "https://www.nasdaq.com/solutions/sustainability/metrio",
-    role: "SDE Intern",
+    role: "Analyst – Observability (SDE I)",
     period: "Jan 2026 – Present",
-    skills: ["Go Lang", "Backend Development", "AG UI","VsCode Extension"],
+    subRoles: [
+      { title: "Analyst – Observability (SDE I)", period: "Aug 2026 – Present" },
+      { title: "SDE Intern", period: "Jan 2026 – Jul 2026" }
+    ],
+    skills: ["Go", "AWS", "Terraform", "Bash", "OTEL", "AG-UI", "VS Code Extensions", "GitHub Copilot"],
     points: [
-      "Shipped 2 production-grade REST APIs in Go with 100% test coverage.",
-      "Built a VS Code extension optimizing Copilot usage, reducing token consumption by ~30%.",
-      "Authored custom instructions reducing bad code generation by ~30%.",
-      "Architected an AG-UI protocol POC across 3 layers."
+      "Automated a manual Terraform AMI update job (~4 hrs) to 0 manual steps via a Bash script that fetches the latest safe AMI from AWS's GitHub, applies changes, and opens a merge request.",
+      "Delivered AWS alarm notifications to 2 channels (Microsoft Teams & ntfy mobile app) at $0 added cost — no PowerAutomate license needed, giving on-call engineers instant mobile alerts.",
+      "Architected an AG-UI protocol POC across React, Go, and Python, streaming AI-generated events to mimic a 'draft with AI' feature; evaluated Go vs Python trade-offs and demoed to the team.",
+      "Shipped 2 production REST API endpoints in Go with layered architecture (handler, service, repository) and 100% unit test coverage; cut PR review cycles by ~40% via early-return guard refactors.",
+      "Built a VS Code extension wrapping GitHub Copilot to reduce token usage, doing CRUD on task files in 1–2 LLM calls; validated savings with OTEL telemetry across Haiku and Sonnet.",
+      "Authored repo-wide Copilot instructions and prompt templates, reducing pattern-breaking code by ~30%; won 1st place at Nasdaq's internal AWS GameDay competition."
     ],
     logo: "/logos/nasdaq-logo-png_seeklogo-426643.webp"
   },
@@ -24,12 +30,10 @@ const experiencesData = [
     companyUrl: "https://giftolexia.com/",
     role: "Web Development Intern",
     period: "May 2025 – Sep 2025",
-    skills: ["React.js", "API Integration", "Performance Optimization", "Team Collaboration"],
+    skills: ["React.js", "CI/CD", "Render", "Performance Optimization", "Agile"],
     points: [
-      "Revamped the assessment page in a 4-member team to align UX with business goals.",
-      "Completed 3+ design and implementation iterations based on stakeholder feedback.",
-      "Migrated the legacy assessment flow to React.js with modular components.",
-      "Integrated APIs and improved page load speed by around 40%."
+      "Spearheaded assessment page redesign within a 4-member agile team, iterating through 3+ versions with stakeholders; boosted completion rates by 30% and cut user drop-off by 25% via mobile-first design.",
+      "Configured Render deployment pipeline with Git-based CI/CD, achieving 99.8% uptime across 6 production releases."
     ],
     logo: "/logos/Giftolexia_logo.png"
   },
@@ -106,9 +110,23 @@ const Experiences = ({ mode = "overworld" }) => {
               <span className="detail-label">Role:</span> {currentExp.role}
             </div>
 
-            <div className="detail-section">
-              <span className="detail-label">Period:</span> {currentExp.period}
-            </div>
+            {currentExp.subRoles ? (
+              <div className="detail-section">
+                <span className="detail-label">Timeline:</span>
+                <div className="sub-roles-list">
+                  {currentExp.subRoles.map((sr, idx) => (
+                    <div key={idx} className="sub-role-item">
+                      <span className="sub-role-title">{sr.title}</span>
+                      <span className="sub-role-period">{sr.period}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="detail-section">
+                <span className="detail-label">Period:</span> {currentExp.period}
+              </div>
+            )}
 
             <div className="detail-section">
               <span className="detail-label">Skills:</span>

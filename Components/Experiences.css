@@ -207,6 +207,37 @@
   transform: translateY(-1px);
 }
 
+.sub-roles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.sub-role-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: rgba(62, 152, 64, 0.08);
+  border-left: 3px solid var(--mc-grass-dark);
+  padding: 6px 10px;
+}
+
+.sub-role-title {
+  font-size: 0.65rem;
+  font-family: var(--mc-font-pixel);
+  color: var(--mc-grass-dark);
+  font-weight: bold;
+}
+
+.sub-role-period {
+  font-size: 0.6rem;
+  font-family: var(--mc-font-pixel);
+  color: #555;
+  white-space: nowrap;
+}
+
 .points-list {
   margin: 8px 0 0 0;
   padding-left: 20px;
@@ -334,6 +365,15 @@
 
 .nether .points-list li {
   color: var(--mc-text);
+}
+
+.nether .sub-role-item {
+  background-color: rgba(139, 31, 31, 0.08);
+  border-left-color: #8B1F1F;
+}
+
+.nether .sub-role-title {
+  color: #8B1F1F;
 }
 
 .nether .points-list li::before {
